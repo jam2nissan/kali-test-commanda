@@ -3,4 +3,374 @@ Install-Module PSWindowsUpdate -Force
 Import-Module PSWindowsUpdate
 Get-WindowsUpdate -AcceptAll -Install -AutoReboot
 
-Think and Grow Rich by Napoleon Hill - 
+Think and Grow Rich by Napoleon Hill - 1:33:00
+
+
+I've been working in the IT industry for almost 14 years already both locally and abroad. 
+I am already exposed to different kinds of software and hardware installation and dealing with different people, 
+Experienced in AD handling, Windows Server and Linux Server, Virtual Machine Infrastructure, O365 administration.
+
+AD - 10years, 4/5 
+Intune - 3years, 3/5 
+Windows Server - 6years3/5 
+Linux Server - 6years 3/5,
+Active Collab - 3years 4/5 
+SnipeIT - 2years 4/5
+Software Installation and Maintenance - 12years, 4/5
+Hardware Installation and Maintenance - 12years, 4/5
+O365 - 3years 3/5
+
+
+
+xfreerdp /v:10.129.240.90 /u:htb-student /p:Academy_WinFun!
+
+
+Globe Business - 203.177.88.218
+Globe Business - 203.177.161.146
+
+
+
+
+EDI Staffbuilders Inc., 
+Augustin International Center, Inc., 
+Industrial Personnel & Management Services Inc. (IPAMS), 
+Golden Horizon Placement Agency, Inc., 
+Jobsconnect Manpower Agency Inc., 
+Staffhouse International Resources Corporation,
+Lifelinks International.
+
+
+
+
+
+
+
+Technical Support
+i sent an email regarding the IP phones nga walay ext.
+~ Provide Level 1 and Level 2 IT support to end users
+~ Troubleshoot hardware, software, and network issues
+~ Diagnose and resolve desktop, laptop, printer, and peripheral problems
+~ Install, configure, and maintain operating systems (Windows/Mac)
+~ Perform software installation and updates
+
+Hardware & Asset Management
+
+~ Set up desktops, laptops, monitors, and peripherals
+~ Replace defective hardware components
+~ Perform regular preventive maintenance
+~ Maintain inventory of IT assets
+~ Track asset assignments and returns
+
+Network & Connectivity
+
+~ Troubleshoot LAN, Wi-Fi, and VPN connectivity issues
+~ Assist with IP configuration and basic network setup
+~ Coordinate with network team for escalated issues
+
+User Account & Access Management
+
+~ Create and manage user accounts (AD, Email, VPN)
+~ Reset passwords and manage access permissions
+~ Assist with MFA and security setup
+
+Software & Application Support
+~ Support MS Office, email clients, and business applications
+~ Assist with remote access tools (VPN, RDP, AnyDesk, etc.)
+~ Assist with MFA tools (Authenticator, Duo, Yubikey)
+~ Support collaboration tools (Teams, Zoom, Outlook)
+
+Security & Compliance
+
+~ Ensure endpoint security is up to date
+~ Install antivirus and security patches
+~ Assist with data backup and recovery
+~ Documentation & Reporting
+~ Document incidents and resolutions
+~ Maintain IT procedures and user guides
+~ Update ticketing system with accurate information
+
+Onboarding & Offboarding
+
+~ Prepare IT equipment for new hires
+~ Retrieve assets during employee separation
+~ Disable accounts and revoke access as needed
+
+Coordination & Escalation
+
+~ Escalate unresolved issues to higher-level IT teams
+~ Coordinate with vendors and service providers
+~ Provide status updates to management
+
+Other Duties
+
+~ Support IT audits and compliance checks
+~ Assist during system upgrades or rollouts
+~ Provide on-site and remote IT support
+
+Common Tools Used
+
+~ Active Directory
+~ Microsoft 365
+~ Remote support tools
+~ Ticketing systems (Freshservice)
+
+
+Add in the software
+
+Darwinbox
+Remote Desktop
+iAssist
+Workspace
+Encompass
+
+Think and Grow Rich - https://www.youtube.com/watch?v=ZUbfskQ-GAY - 58:00
+
+
+237 locks with pin
+
+8 box with key
+
+
+
+Lacida, Nicolo Adrian - No headset upon recovery
+Caylan, Nina Mae - No headset, Yubikey upon recovery
+Lazaga, Exyll Mae - No headset upon recovery
+
+
+
+
+
+=============================================================================
+MODER 	- RISE: 203.28.67.218 | APN: 38.105.20.68 | PLDT: 122.55.56.226
+FMC		- RISE: 203.28.67.82
+==============================================================================
+a-prabakar.mannadane@onearchwell.com
+Tom&jerry$1 | Micky@1234 | Jerry@1234 | Lion@1234 | Queen@1234 | Queen$1234
+M@lib0g@6969
+JDN- Freedom Rise & PLDT
+1Nito - Rise & Globe
+
+
+
+
+1Nito => MODER - Moder@2025 | Moder_1Nito_*** - Moder@2024
+
+MOD (RISE)
+IP	: 192.82.52.154 - 158
+SUB	: 255.255.255.248
+GATE: 192.82.52.153
+DNS : 43.226.6.69 - 70
+
+MOD (GLOBE)
+IP : 203.177.161.146/29
+IP in 7th and 8th - 222.127.97.202
+
+FMC
+IP	: 192.82.52.146 - 150 in 17th floor MRC
+SUB	: 255.255.255.248
+GATE: 192.82.52.145
+DNS : 43.226.6.69 - 70
+
+Alabang IP : 115.146.191.82 through 115.146.191.86
+==============================================================================
+manage-bde -protectors C: -get
+==============================================================================
+9777865962- TLberna
+9334785725 - navi
+09171523412 - TLjomayra
+09562717562 - TL-JD
+09615741903 - gil
+09989964713 - Jommar
+09196089885 - Jaime
+==============================================================================
+
+09196908208
+
+
+BPI - 10 - 
+CIMB - 2 - 
+MP2 - 1 - 
+PriceLocq - 500 
+
+macrium - T8QS-85PK
+
+==============================================================================================
+
+Jhonmarv1!
+
+https://s.lazada.com.ph/s.kj6LG?cc
+
+
+==============================================================================================
+
+https://archwellholdings-my.sharepoint.com/:x:/r/personal/anil_gopinathan_onearchwell_com/Documents/Desktop/OneArchwell/PROJECTS/Philippines/Cebu/Assets/Maser%20Asset%20details%20-%20Cebu.xlsx?d=w8c30a04c2e794a60a751eeb28ee6aa13&csf=1&web=1&e=P1TGSb
+
+
+==========================================================
+User Name           SID
+=================== =============================================
+ws01\bob S-1-5-21-674899381-4069889467-2080702030-1002
+The SID is broken down into this pattern.
+
+  Windows Security
+(SID)-(revision level)-(identifier-authority)-(subauthority1)-(subauthority2)-(etc)
+Hi,
+
+~ Done deleting the separated employee's biometrics access on our company premises (applicable area).
+~ Already retrieved the assigned laptop, headset and transfer it at our Storage Room for safekeeping and future onboarding.
+
+      User: Vince.Villegas
+      Laptop: PW0DM06S
+      Token: Returned
+      Headset: Logi Headset
+
+~ Deactivation request has been sent separately through https://essentialshelp.freshservice.com/
+
+Thanks.
+---
+Please disable GOMODER Account of Resigned Employee Louise.Batoctoy@gomoder.com
+Laptop Asset# - 1207631
+Laptop Serial Number - 29615504957
+Hostname - FM-029615504957
+Enroll in the Phase 8 Area biometrics access | Edward.Villar - MOD0969
+Recover laptop and IT accountabilities of resigned employee Anna Madera
+Disable all floor access of resigned employee | IRENE MANEJA - MOD0870
+Wipe and prepare previous laptop of resign employee for future onboarding. | loupio.enriquez - MOD0794
+
+Snagit- https://www.techsmith.com/download/licenses/snagit/20
+(key for snagit - YP5YJ-MGVJR-APTFP-CRCGM-B67E9)
+
+FMC of alnair - yd2PLW5D
+
+Anil's Mobile# - 8327573909
+
+
+NHd3-B4?nF#9LF8
+
+=======
+=======
+IT Room UPS Malfunction - Report to BPOSeats 	- Nov. 12, 2024
+FMC UPS Phase 3 - REPORT of BPOSeats 			- Dec. 5
+
+1. Enhance Network Security
+	Change Wi-Fi Passwords Quarterly: 	Regularly update the Wi-Fi passwords for all networks (guest and corporate) 
+										to reduce unauthorized access.
+
+2. Security Training and Awareness
+	Conduct IT Training: ITIL
+
+3. 	Monitor and Audit of Assets
+		Implement Logging and Monitoring: Ensure all IT assets are monitored regularly.
+
+4. Knowledge Base.
+
+
+NewDeviceEnrollment-Users
+gg_Intune_Managed_Usersruve
+License_Microsoft_M365_E3
+
+
+8004
+84 seats -> cooper
+45 seats -> FMC
+
+
+ISSUE:
+SPECIFIC PROBLEM:
+CLIENT:
+HOW MANY USER AFFECTED:
+HOW ARE THE USER CONNECTED: VPN, NO VPN USED, CITRIX, RDP
+LOCATION:
+SEND TO -> digitaloperationscenter@essentialsgo.com
+Bridge - https://onearchwell.zoom.us/j/3402991264?pwd=aDB3cmxyQ2ppRU1QT3dhUjVJUnNVUT09
+
+
+ModerAllEmployeesCebu@gomoder.com = Moder-Philippines@gomoder.com
+
+apps.usw2.pure.cloud
+
+
+has:attachment larger:10mb
+Paolo Catilogo, Zedrick Moscare, Naomi Tan Tadifa - boblits
+ 
+00:17:19:07:05:E2
+00:17:19:07:13:6D
+
+
+ods3-94 V10 7/0/12 8002
+
+
+02601217 - iCare
+
+
+************ RCA ************
+Date: September 2, 2025
+Reported Issue: 8:08 PM PHT
+Start Time: 8:08 PHT
+End Time: 8:16 PM PHT
+No. of Impacted Users: 1
+Troubleshooting Steps: 
+	~ Check the power cord and other cables if plugged properly.
+	~ Check the dock if cables were inserted properly.
+	~ Check the monitor if its turned on.
+Diagnosis: The right hand side is not turned on.
+Action Plan: Press the monitor power button.
+************ RCA ************
+
+SAMPLES
+
+MOD1475	Ninalyn Miape - both in deployed and stock
+
+
+Moder Academy contact -> Maheshwari.Pillai@gomoder.com, Sujan.Bernard@gomoder.com
+
+
+IPphone
+Token
+Yubikeys
+Avaya Software
+
+iAssist
+
+IPphones
+8th floor - 10.80.55
+7th floor - 10.80.55
+
+MRC hotline - 469-549-2244
+
+38246
+
+cmd /k wmic bios get serialnumber
+
+
+add to IT Policy
+
+TL will keep the laptop if the agent is soon to resign or going AWOL
+
+
+
+1Nito Site - Installation of workstations and maintenance.
+~ 8th floor ODS2 - setup workstations - done
+~ 8th floor ODS3 - setup workstations - done
+~ 8th floor ODS4 - setup workstations - done
+~ 8th floor ODS5 - setup workstations - done
+~ 8th floor ODS6 - setup workstations - done
+
+~ 7th floor ODS7 - setup workstations - done
+~ 7th floor ODS8 - setup workstations - done
+~ 7th floor ODS9 - setup workstations - done
+~ 7th floor ODS10 - setup workstations - done
+
+
+Keeping all production floor in good working condition.
+~ Less downtime
+~ Mitigate recurring issues
+~ Respond to issues being reported in timely manner. 
+~ Educate users in basic troubleshooting to promote personal learnings.
+
+Respond to tickets assigned to me and to the group
+~ Preparing and provisioning of laptops during onboarding.
+~ Recover and reset all IT assets during offboarding
+~ Keep Server Room tidy in all floors.
+
+It was a good busy year. Full of challenges and learning. Looking forward for the upcoming year.
