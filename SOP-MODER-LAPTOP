@@ -1,0 +1,6 @@
+Set-ExecutionPolicy  -Force
+Install-Module PSWindowsUpdate -Force
+Import-Module PSWindowsUpdate
+Get-WindowsUpdate -AcceptAll -Install -AutoReboot
+
+Think and Grow Rich by Napoleon Hill - 
