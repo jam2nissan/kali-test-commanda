@@ -1,0 +1,7 @@
+wlx00c0cab45c25
+
+Scan Wi-Fi networks and clients
+    - sudo airodump-ng wlx00c0cab45c25
+
+Focus on a specific Wi-Fi (recommended)
+    - sudo airodump-ng -c <channel> --bssid <AP_MAC> wlx00c0cab45c25
