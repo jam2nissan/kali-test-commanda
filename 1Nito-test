@@ -5,3 +5,4 @@ Scan Wi-Fi networks and clients
 
 Focus on a specific Wi-Fi (recommended)
     - sudo airodump-ng -c <channel> --bssid <AP_MAC> wlx00c0cab45c25
+
