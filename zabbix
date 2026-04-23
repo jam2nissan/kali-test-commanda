@@ -1,0 +1,77 @@
+#!/bin/bash
+
+set -e
+
+# VARIABLES
+DB_NAME="zabbix"
+DB_USER="zabbix_user"
+DB_PASS="StrongPassword123!"
+ZABBIX_VERSION="7.0"   # LTS version
+
+echo "=== Updating system ==="
+apt update && apt upgrade -y
+
+echo "=== Installing base packages ==="
+apt install -y apache2 mariadb-server wget gnupg2 lsb-release ca-certificates curl software-properties-common
+
+echo "=== Securing MariaDB (basic) ==="
+mysql -e "DELETE FROM mysql.user WHERE User='';"
+mysql -e "DROP DATABASE IF EXISTS test;"
+mysql -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';"
+mysql -e "FLUSH PRIVILEGES;"
+
+echo "=== Adding Zabbix repository ==="
+wget https://repo.zabbix.com/zabbix/${ZABBIX_VERSION}/debian/pool/main/z/zabbix-release/zabbix-release_${ZABBIX_VERSION}-1+debian$(lsb_release -rs)_all.deb
+dpkg -i zabbix-release_${ZABBIX_VERSION}-1+debian$(lsb_release -rs)_all.deb
+
+apt update
+
+echo "=== Installing Zabbix packages ==="
+apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+
+echo "=== Creating Zabbix database ==="
+mysql -uroot <<EOF
+CREATE DATABASE ${DB_NAME} CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+CREATE USER '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASS}';
+GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'localhost';
+FLUSH PRIVILEGES;
+EOF
+
+echo "=== Importing initial schema ==="
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -u${DB_USER} -p${DB_PASS} ${DB_NAME}
+
+echo "=== Configuring Zabbix server ==="
+sed -i "s/^# DBPassword=.*/DBPassword=${DB_PASS}/" /etc/zabbix/zabbix_server.conf
+
+echo "=== Configuring PHP timezone ==="
+sed -i "s|; php_value date.timezone.*|php_value date.timezone Asia/Manila|" /etc/zabbix/apache.conf
+
+echo "=== Restarting services ==="
+systemctl restart apache2
+systemctl restart zabbix-server
+systemctl restart zabbix-agent
+
+echo "=== Enabling services ==="
+systemctl enable apache2 zabbix-server zabbix-agent
+
+echo "=== DONE ==="
+echo "Access Zabbix UI:"
+echo "http://172.16.48.156/zabbix"
+
+echo "Default login:"
+echo "Username: Admin"
+echo "Password: zabbix"
+
+
+
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+nano /root/.bashrc
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+source /root/.bashrc
+
+apt update
+apt install locales -y
+
+dpkg-reconfigure locales

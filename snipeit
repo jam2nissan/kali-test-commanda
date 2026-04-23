@@ -1,0 +1,176 @@
+#!/bin/bash
+
+set -e
+
+echo "=== UPDATE SYSTEM ==="
+apt update && apt upgrade -y
+
+echo "=== INSTALL PACKAGES ==="
+apt install -y apache2 mariadb-server unzip git curl
+
+echo "=== INSTALL PHP (required for Snipe-IT) ==="
+apt install -y php php-cli php-common php-mbstring php-xml php-curl php-mysql php-zip php-bcmath php-gd libapache2-mod-php phpmyadmin
+
+echo "=== ENABLE APACHE MODULES ==="
+/usr/sbin/a2enmod
+a2enmod rewrite
+systemctl restart apache2
+
+echo "=== SECURE MYSQL (auto minimal setup) ==="
+mysql -e "DELETE FROM mysql.user WHERE User='';"
+mysql -e "DROP DATABASE IF EXISTS test;"
+mysql -e "FLUSH PRIVILEGES;"
+
+echo "=== CREATE DATABASE AND USER ==="
+mysql -e "CREATE DATABASE snipeit_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -e "CREATE USER 'jam_admin'@'localhost' IDENTIFIED BY '123qweasd';"
+mysql -e "GRANT ALL PRIVILEGES ON snipeit_db.* TO 'jam_admin'@'localhost';"
+mysql -e "FLUSH PRIVILEGES;"
+
+echo "=== INSTALL COMPOSER ==="
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+echo "=== INSTALL SNIPE-IT ==="
+cd /var/www
+git clone https://github.com/snipe/snipe-it.git
+cd snipe-it
+
+echo "=== INSTALL PHP DEPENDENCIES ==="
+composer install --no-dev --prefer-source
+
+echo "=== SET PERMISSIONS ==="
+chown -R www-data:www-data /var/www/snipe-it
+chmod -R 755 /var/www/snipe-it
+chmod -R 775 storage bootstrap/cache
+
+echo "=== CONFIGURE ENV ==="
+cp .env.example .env
+
+sed -i 's|APP_URL=.*|APP_URL=http://172.16.48.149|' .env
+sed -i 's|DB_DATABASE=.*|DB_DATABASE=snipeit_db|' .env
+sed -i 's|DB_USERNAME=.*|DB_USERNAME=jam_admin|' .env
+sed -i 's|DB_PASSWORD=.*|DB_PASSWORD=123qweasd|' .env
+
+php artisan key:generate
+php artisan migrate --force
+
+
+
+
+echo "=== CONFIGURE APACHE VHOST ==="
+
+cat > /etc/apache2/sites-available/snipeit.conf <<EOF
+<VirtualHost *:80>
+    ServerAdmin admin@localhost
+    ServerName 172.16.48.149
+    DocumentRoot /var/www/snipe-it/public
+
+    <Directory /var/www/snipe-it/public>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/snipeit_error.log
+    CustomLog \${APACHE_LOG_DIR}/snipeit_access.log combined
+</VirtualHost>
+EOF
+
+a2dissite 000-default.conf
+a2ensite snipeit.conf
+
+
+
+
+
+systemctl reload apache2
+
+
+
+
+echo "=== DONE ==="
+echo "Access Snipe-IT at: http://172.16.48.149"
+
+
+
+
+
+chmod +x install_snipeit.sh
+./install_snipeit.sh
+
+
+
+=============================================================================================
+
+
+
+
+
+
+
+
+
+apt install -y apache2 mariadb-server unzip git curl
+apt install -y php php-cli php-common php-mbstring php-xml php-curl php-mysql php-zip php-bcmath php-gd libapache2-mod-php
+apt install -y phpmyadmin
+
+
+
+#!/bin/bash
+
+set -e
+
+echo "=== UPDATE SYSTEM ==="
+apt update && apt upgrade -y
+
+echo "=== INSTALL PACKAGES ==="
+#apt install -y apache2 mariadb-server unzip git curl
+
+echo "=== INSTALL PHP (required for Snipe-IT) ==="
+#apt install -y php php-cli php-common php-mbstring php-xml php-curl php-mysql php-zip php-bcmath php-gd libapache2-mod-php phpmyadmin
+
+echo "=== ENABLE APACHE MODULES ==="
+/usr/sbin/a2enmod
+a2enmod rewrite
+systemctl restart apache2
+
+echo "=== SECURE MYSQL (auto minimal setup) ==="
+mysql -e "DELETE FROM mysql.user WHERE User='';"
+mysql -e "DROP DATABASE IF EXISTS test;"
+mysql -e "FLUSH PRIVILEGES;"
+
+echo "=== INSTALL COMPOSER ==="
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+echo "=== INSTALL SNIPE-IT ==="
+cd /var/www
+git clone https://github.com/snipe/snipe-it.git
+cd snipe-it
+
+echo "=== INSTALL PHP DEPENDENCIES ==="
+composer install --no-dev --prefer-source
+
+echo "=== SET PERMISSIONS ==="
+chown -R www-data:www-data /var/www/snipe-it
+chmod -R 755 /var/www/snipe-it
+chmod -R 775 storage bootstrap/cache
+
+echo "=== CONFIGURE ENV ==="
+cp .env.example .env
+
+sed -i 's|APP_URL=.*|APP_URL=http://172.16.48.150|' .env
+sed -i 's|DB_DATABASE=.*|DB_DATABASE=snipeit_db|' .env
+sed -i 's|DB_USERNAME=.*|DB_USERNAME=jam_admin|' .env
+sed -i 's|DB_PASSWORD=.*|DB_PASSWORD=123qweasd|' .env
+
+php artisan key:generate
+php artisan migrate --force
+
+
+
+
+systemctl reload apache2
+
+echo "=== DONE ==="
+echo "Access Snipe-IT at: http://172.16.48.150"
