@@ -1,3 +1,9 @@
 apt update && apt upgrade
 apt install -y apache2 mariadb-server php php-mysql php-mbstring php-curl php-gd php-xml libapache2-mod-php unzip composer
 mysql_secure_installation
+
+apt install curl -y
+curl -fsSL https://tailscale.com/install.sh | sh
+tailscale up
+
+apt install -y nodejs npm
