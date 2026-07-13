@@ -1,2 +1,3 @@
 apt update && apt upgrade
 apt install -y apache2 mariadb-server php php-mysql php-mbstring php-curl php-gd php-xml libapache2-mod-php unzip composer
+mysql_secure_installation
