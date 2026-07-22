@@ -43,13 +43,14 @@ Thanks.
 ==============================================================================================
 run this in the claude: in the remote side it will ask the user a PIN (set the PIN to "123qwe") when it clicks the Play now instead of queue
 
-uploading of team photo/logo is not working.
+
 
 create a web app setup in lamp (linux, apache2, mariadb, php) like an attendance system using a laptops web camera (for now). like it should be in a kiosk like setup, and has an admin side also.
     - added feature it will send a message to parents via viber or whatsapp.
 
 create a web app setup in lamp (linux, apache2, mariadb, php) like a boom barrier it will take a snapshot of an incoming vehicle. cameras will be placed in the entrance and exit.
 
+REVIEW/CHECK: #INC-117659
 
 
 ODS 7 - Carenlie Manzanares - 
