@@ -2,19 +2,28 @@ apt update && apt upgrade
 apt install -y apache2 mariadb-server php php-mysql php-mbstring php-curl php-gd php-xml libapache2-mod-php unzip composer
 mysql_secure_installation
 
+
+===================== TAILSCALE START ========================
 apt install curl -y
 curl -fsSL https://tailscale.com/install.sh | sh
 tailscale up
 
 apt install -y nodejs npm
+===================== TAILSCALE START ========================
 
 
 
-
-========= WAZUH ============
+===================== WAZUH START ========================
+apt install -y lsb-release
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.7.5-1_amd64.deb && WAZUH_MANAGER='172.16.48.165' dpkg -i ./wazuh-agent_4.7.5-1_amd64.deb
 
 systemctl daemon-reload
 systemctl enable wazuh-agent
 systemctl start wazuh-agent
+
+
+sed -i 's/MANAGER_IP/172.16.48.165/g' /var/ossec/etc/ossec.conf
+
+tail -f /var/ossec/logs/ossec.log
+===================== WAZUH END ========================
